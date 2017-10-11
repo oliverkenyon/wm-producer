@@ -10,7 +10,7 @@ The application needs the following configuration settings, which should be set 
 
  - WM_METOFFICE_API_KEY: Needed to access API, available free from https://www.metoffice.gov.uk/datapoint/api
  - WM_KAFKA_HOST: Host and port e.g. "localhost:9092"
- - WM_FETCH_HISTORICAL_DATA: optional, if set to true, on startup the application will query the previous 24 hours of data from the API and send this to Kafka
+ - WM_FETCH_HISTORICAL_DATA: optional, if set to true, on startup the application will query the previous 24 hours of data from the API and send this to Kafka. After this, it will continue as normal to poll and send data every hour.
  
 ## Build
 
