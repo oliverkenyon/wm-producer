@@ -1,5 +1,9 @@
 # Weather monitor producer
 
+Queries the MetOffice API for observation data from all available locations across the UK every hour. This is the max frequency that the data is made available. 
+
+The data is processed into individual readings per location/time and each of these is sent to Kafka using the standard Java driver. The MetOffice only provides the last 24 hours of data, but by saving it into Kafka we can analyse longer periods of time. 
+
 ## Configuration
 
 The application needs the following configuration settings, which should be set in environment variables:
