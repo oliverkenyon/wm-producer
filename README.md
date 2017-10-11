@@ -16,6 +16,6 @@ gradle build
 
 ## Run
 
-java -jar build/lib/WmProducer-SNAPSHOT-1.0.jar
+java -jar build/libs/WmProducer-1.0-SNAPSHOT.jar
 
 Application will run until stopped, querying the API every hour. 
