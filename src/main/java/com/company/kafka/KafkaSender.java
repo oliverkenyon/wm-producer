@@ -1,7 +1,6 @@
 package com.company.kafka;
 
 import com.company.Config;
-import com.company.util.ObservationDataSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;

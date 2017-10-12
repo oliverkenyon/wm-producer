@@ -31,7 +31,7 @@ public class MetOfficeDataProcessor {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'Z'H");
                     LocalDateTime dateTime = LocalDateTime.parse(period.value + hours, formatter);
 
-                    kafkaData.dataDate = dateTime;
+                    kafkaData.dataDate = dateTime.toString();
                     kafkaData.locationElevation = location.elevation;
                     kafkaData.locationName = location.name;
                     kafkaData.locationIdentifier = location.i;
