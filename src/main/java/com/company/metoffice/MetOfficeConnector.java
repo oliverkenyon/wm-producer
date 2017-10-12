@@ -21,8 +21,7 @@ public class MetOfficeConnector {
 
     public ObservationsResponse getLatestObservations() {
         String sampleDate = Instant.now()
-                .truncatedTo(ChronoUnit.HOURS)
-                .minus(1L, ChronoUnit.HOURS).toString();
+                .truncatedTo(ChronoUnit.HOURS).toString();
 
         String endpointUrl = "/all?res=hourly&time=" + sampleDate;
         return getObservations(endpointUrl);
