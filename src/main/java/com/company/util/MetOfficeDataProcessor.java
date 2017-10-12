@@ -28,6 +28,8 @@ public class MetOfficeDataProcessor {
                     // The property named "$" contains the number of minutes since the start of the day to this particular
                     // reading. It's always a multiple of 60 as the max resolution of readings is hourly, which is what we request.
                     Integer hours = Integer.parseInt(data.$) / 60;
+
+                    // The date is provided with Zulu-time specifier (UTC) but no time, so we append the hours to produce the required timestamp
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'Z'H");
                     LocalDateTime dateTime = LocalDateTime.parse(period.value + hours, formatter);
 
@@ -45,10 +47,6 @@ public class MetOfficeDataProcessor {
     }
 
     private static KafkaObservationData createKafkaObservationData(ObservationData observationData) {
-        // Because we are serializing the returned class into Kafka, we need to be careful here
-        // not to capture the incoming ObservationData in a closure and not to reference it from the
-        // KafkaObservationData class, otherwise our consumers will have a dependency on these MetOffice
-        // specific value objects.
         KafkaObservationData data = new KafkaObservationData();
         data.windGustMph = observationData.G;
         data.temperatureCelcius = observationData.T;

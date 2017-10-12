@@ -36,7 +36,10 @@ public class MetOfficeConnector {
         String responseString = response.getEntity(String.class);
 
         ObjectMapper mapper = new ObjectMapper();
+        // Some properties returned by API are either an array of objects or a single object depending on query params
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+
+        // The API is not versioned currently, so we may anticipate things being added
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         try {
             return mapper.readValue(responseString, ObservationsResponse.class);

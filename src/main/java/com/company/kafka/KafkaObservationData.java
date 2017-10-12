@@ -1,12 +1,6 @@
 package com.company.kafka;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
-public class KafkaObservationData implements Serializable {
-
-    private static final long serialVersionUID = 123L;
-
+public class KafkaObservationData {
     public String dataDate;
     public String locationName;
     public String locationElevation;
