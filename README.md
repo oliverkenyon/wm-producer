@@ -1,4 +1,4 @@
-# Weather monitor producer
+# Weather Monitor Producer
 
 Queries the MetOffice API for observation data from all available locations across the UK every hour. This is the max frequency that the data is made available. 
 
