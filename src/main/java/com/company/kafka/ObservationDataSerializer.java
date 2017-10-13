@@ -16,7 +16,6 @@ public class ObservationDataSerializer implements Serializer<KafkaObservationDat
 
     @Override
     public void configure(Map configs, boolean isKey) {
-
     }
 
     @Override
@@ -34,6 +33,5 @@ public class ObservationDataSerializer implements Serializer<KafkaObservationDat
 
     @Override
     public void close() {
-
     }
 }
