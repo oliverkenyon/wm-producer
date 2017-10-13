@@ -7,6 +7,7 @@ import com.company.metoffice.ObservationsResponse;
 import com.company.util.MetOfficeDataProcessor;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -31,6 +32,10 @@ public class Producer {
             kafkaSender.send(list);
         }
 
+        Instant firstSampleTime = Config.fetchHistoricalData()
+                ? Instant.now().plus(1, ChronoUnit.HOURS)
+                : Instant.now();
+
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -40,7 +45,7 @@ public class Producer {
                 kafkaSender.send(list);
 
             }
-        }, Date.from(Instant.now()), 3600000);
+        }, Date.from(firstSampleTime), 3600000);
     }
 
 }
